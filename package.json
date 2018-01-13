@@ -1,0 +1,16 @@
+{
+  "name": "accommodation-review",
+  "version": "1.0.0",
+  "description": "Accommodation rating and review",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/*"
+  },
+  "keywords": [
+    "accommodation",
+    "rating",
+    "review"
+  ],
+  "author": "Mahdi Fani-Disfani <mahdifani1369@gmail.com>",
+  "license": "MIT"
+}
