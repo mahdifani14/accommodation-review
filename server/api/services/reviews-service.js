@@ -7,7 +7,7 @@ const ReviewsDao = require('../dao/reviews-dao');
 const reviewsDao = new ReviewsDao();
 
 const _computeAverage = (array, total) => {
-    const accumulator = (sum, item) => sum + item;
+    const accumulator = (sum, item) => sum + (item.rate * item.weight);
 
     if (array.length < 1) return 0;
 
@@ -15,20 +15,20 @@ const _computeAverage = (array, total) => {
 };
 
 const _getGeneralRatingAverage = (reviews, total) => {
-    const reviewsGeneralRates = reviews.map(review => parseInt(review.ratings.general.general));
+    const reviewsGeneralRates = reviews.map(review => ({weight: review.weight, rate: parseInt(review.ratings.general.general)}));
 
     return _computeAverage(reviewsGeneralRates, total);
 };
 
 const _getAspectsRatingAverage = (reviews, total) => {
-    const reviewsAspectsRates = reviews.map(review => review.ratings.aspects);
+    const reviewsAspectsRates = reviews.map(review => ({weight: review.weight, aspects: review.ratings.aspects}));
     const aspects = Constants.RATING_ASPECTS;
     const aspectsRateAveragesTotal = {};
     const aspectsRateAveragesVoted = {};
 
     aspects.forEach(aspect => {
-        const aspectRatesTotal = reviewsAspectsRates.map(review => parseInt(review[aspect]));
-        const aspectRateVoted = aspectRatesTotal.filter(rate => rate > 0);
+        const aspectRatesTotal = reviewsAspectsRates.map(review => ({weight: review.weight, rate: parseInt(review.aspects[aspect])}));
+        const aspectRateVoted = aspectRatesTotal.filter(review => review.rate > 0);
         const numberOfVoted = aspectRateVoted.length;
 
         aspectsRateAveragesTotal[aspect] = _computeAverage(aspectRatesTotal, total) || 0;
