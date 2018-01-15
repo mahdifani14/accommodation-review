@@ -3,7 +3,7 @@
 const Joi = require('joi');
 const constants = require('../../constants');
 const reviewsService = require('../services/reviews-service');
-const Review = require('../models/review-model');
+const reviewRating = require('../models/reviews-rating-averages-model');
 const utils = require('../../utils');
 
 const validate = {
@@ -42,10 +42,7 @@ module.exports = {
                 responses: {
                     '200': {
                         description: 'Success',
-                        schema: Joi.object({
-                            reviews: Joi.array().items(Review.schema()),
-                            total: Joi.number().min(0)
-                        })
+                        schema: reviewRating.schema
                     },
                     '400': {description: 'Bad Request'},
                     '401': {description: 'Unauthorized'}
