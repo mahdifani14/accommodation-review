@@ -1,0 +1,4 @@
+jsdoc/*
+node_modules/*
+test/*
+coverage/*

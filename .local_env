@@ -1,0 +1,5 @@
+MONGODB_URL=mongodb://localhost:27017
+MONGODB_NAME=accommodation
+AUTH0_DOMAIN=acc-review.eu.auth0.com
+LOG_DEBUG_ENABLED=true
+PORT=8080
