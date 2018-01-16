@@ -69,8 +69,7 @@ class Review {
 
     static reviewWeight(entryDate) {
         const now = new Date();
-        const entryIsoDate = new Date(entryDate);
-        const reviewAge = now.getFullYear() - entryIsoDate.getFullYear();
+        const reviewAge = now.getFullYear() - entryDate.getFullYear();
 
         if (reviewAge < 5) {
             return (1 - reviewAge * 0.1);
@@ -101,7 +100,7 @@ class Review {
         review.titles = doc.titles || {};
         review.texts = doc.texts || {};
         review.locale = doc.locale || '';
-        review.weight = parseFloat(this.reviewWeight(doc.entryDate));
+        review.weight = parseFloat(this.reviewWeight(review.entryDate));
 
         return review;
     }
@@ -119,8 +118,8 @@ class Review {
         this.parents = parents;
         this.id = id;
         this.traveledWith = traveledWith;
-        this.entryDate = entryDate;
-        this.travelDate = travelDate;
+        this.entryDate = new Date(entryDate);
+        this.travelDate = new Date(travelDate);
         this.ratings = ratings;
         this.user = user;
     }
