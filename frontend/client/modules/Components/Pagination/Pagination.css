@@ -1,0 +1,33 @@
+ul.pagination {
+  display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination li {
+  display: inline-block;
+}
+
+.pagination a {
+  cursor: pointer;
+}
+
+.break a{
+  cursor: default;
+}
+
+.active{
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.pagination li[class*="previous"] a, .pagination li[class*="next"] a {
+  padding: 10px;
+}
+
+.pagination li a {
+  padding: 5px;
+}
