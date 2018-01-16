@@ -27,10 +27,12 @@ class ReviewsDao {
         return this.collection
             .then((reviewsCollection) => {
                 let firstCursor = reviewsCollection.find(query);
+                firstCursor = firstCursor.sort({entryDate: -1});
 
                 if (from) {
                     firstCursor = firstCursor.skip(from);
                 }
+
                 if (to) {
                     firstCursor = firstCursor.limit(to - (from || 0));
                 }
