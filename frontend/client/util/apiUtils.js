@@ -6,7 +6,7 @@ function getHeaders() {
   return {
     'Accept': 'application/json', // eslint-disable-line
     'Content-Type': 'application/json',
-    'Authorization': `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE0IiwibmFtZSI6Ik1haGRpIEZhbmktRGlzZmFuaSIsInVzZXJfdHlwZSI6ImFkbWluIn0.FFj0JMT5pAEnMXZZ7tl7c07S31a-ZnGXY84tXNdqh1s`
+    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE0IiwibmFtZSI6Ik1haGRpIEZhbmktRGlzZmFuaSIsInVzZXJfdHlwZSI6ImFkbWluIn0.FFj0JMT5pAEnMXZZ7tl7c07S31a-ZnGXY84tXNdqh1s'
   };
 }
 
@@ -19,7 +19,7 @@ function getHeaders() {
  * @return {Promise}
  */
 function callApi(method, headers, host, url, data) {
-  const args = {method, headers};
+  const args = { method, headers };
 
   if (data) {
     args.body = JSON.stringify(data);
@@ -30,12 +30,12 @@ function callApi(method, headers, host, url, data) {
       const contentType = response.headers.get('content-type');
 
       if (contentType && contentType.indexOf('application/json') !== -1) {
-        return response.json().then(json => ({content: json, response}));
+        return response.json().then(json => ({ content: json, response }));
       }
 
-      return {content: response.statusText, response};
+      return { content: response.statusText, response };
     })
-    .then(({content, response}) => {
+    .then(({ content, response }) => {
       if (!response.ok) {
         return Promise.reject(content);
       }

@@ -30,6 +30,7 @@
     "react-paginate": "2.2.3",
     "react-redux": "4.4.5",
     "react-router": "2.4.1",
+    "react-star-ratings": "^1.4.1",
     "react-tap-event-plugin": "1.0.0",
     "redux": "3.5.2",
     "redux-form": "5.3.2",

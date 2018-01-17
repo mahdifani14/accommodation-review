@@ -8,6 +8,7 @@ import Search from './components/Search/Search';
 import { browserHistory } from 'react-router';
 import Pagination from '../Components/Pagination/Pagination';
 import config from '../../config';
+import ReviewsRating from './components/ReviewsRating/ReviewsRating';
 
 class ReviewsListPage extends Component {
   static propTypes = {
@@ -67,12 +68,13 @@ class ReviewsListPage extends Component {
   };
 
   render() {
-    const { totalReviews, reviews } = this.props;
+    const { totalReviews, reviews, reviewsRatingAverages } = this.props;
     const totalsPage = Math.ceil(totalReviews / config.reviewsPerPage);
 
     return (
       <div>
         <Search onSubmit={this.handleSearchSubmit}/>
+        {reviewsRatingAverages ? <ReviewsRating ratings={reviewsRatingAverages}/> : ''}
         <ReviewsList reviews={reviews}/>
         <Pagination pageClick={this.handlePageClick} total={totalsPage}/>
       </div>

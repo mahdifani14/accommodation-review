@@ -14,7 +14,7 @@ class Search extends Component {
   };
 
   handleChange = (e) => {
-    this.setState({[e.target.name]: e.target.value }
+    this.setState({ [e.target.name]: e.target.value }
     );
   };
 

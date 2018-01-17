@@ -7,23 +7,24 @@ class Pagination extends Component {
 
   static propTypes = {
     total: PropTypes.number,
-    pageClick:PropTypes.func,
+    pageClick: PropTypes.func,
   };
 
   render() {
     return (
       <ReactPaginate previousLabel={"previous"}
-                     nextLabel={"next"}
-                     breakLabel={<a href="">...</a>}
-                     breakClassName={styles.break}
-                     pageNum={this.props.total}
-                     marginPagesDisplayed={2}
-                     pageRangeDisplayed={5}
-                     clickCallback={this.props.pageClick}
-                     containerClassName={styles.pagination}
-                     subContainerClassName={"pages pagination"}
-                     activeClassName={styles.active}/>
-    )
+        nextLabel={"next"}
+        breakLabel={<a href="">...</a>}
+        breakClassName={styles.break}
+        pageNum={this.props.total}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        clickCallback={this.props.pageClick}
+        containerClassName={styles.pagination}
+        subContainerClassName={"pages pagination"}
+        activeClassName={styles.active}
+      />
+    );
   }
 
 }

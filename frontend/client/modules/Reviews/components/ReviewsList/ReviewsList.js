@@ -1,9 +1,9 @@
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
-const ReviewsList = ({reviews}) => (
-  <Table selectable={true}>
+const ReviewsList = ({ reviews }) => (
+  <Table selectable={false}>
     <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
       <TableRow>
         <TableHeaderColumn>User</TableHeaderColumn>

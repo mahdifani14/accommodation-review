@@ -18,22 +18,22 @@ const app = new Express();
 // Run Webpack dev server in development mode
 if (process.env.NODE_ENV === 'development') {
   const compiler = webpack(config);
-  app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath}));
+  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
   app.use(webpackHotMiddleware(compiler));
   app.use(require('morgan')('dev'));
 }
 
 // React And Redux Setup
-import {configureStore} from '../client/store';
-import {Provider} from 'react-redux';
+import { configureStore } from '../client/store';
+import { Provider } from 'react-redux';
 import React from 'react';
-import {renderToString} from 'react-dom/server';
-import {match, RouterContext} from 'react-router';
+import { renderToString } from 'react-dom/server';
+import { match, RouterContext } from 'react-router';
 import Helmet from 'react-helmet';
 
 // Import required modules
 import routes from '../client/routes';
-import {fetchComponentData} from './util/fetchData';
+import { fetchComponentData } from './util/fetchData';
 import serverConfig from './config';
 
 // Material-ui theme injector
@@ -44,8 +44,8 @@ import muiTheme from '../client/muiTheme.js';
 // Apply body Parser and server public assets and routes
 app.use(compression());
 app.use(cookieParser());
-app.use(bodyParser.json({limit: '20mb'}));
-app.use(bodyParser.urlencoded({limit: '20mb', extended: false}));
+app.use(bodyParser.json({ limit: '20mb' }));
+app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist')));
 
 // Render Initial HTML
@@ -86,7 +86,7 @@ const renderError = err => {
 
 // Server Side Rendering based on routes matched by React-router.
 app.use((req, res, next) => {
-  match({routes, location: req.url}, (err, redirectLocation, renderProps) => {
+  match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
     if (err) {
       return res.status(500).end(renderError(err));
     }

@@ -16,7 +16,7 @@ const {
 
 const config = {
   pageSize: 24,
-  reviewsPerPage:13,
+  reviewsPerPage: 13,
   reviews: {
     api: `${API_BASE_URL}`,
   },

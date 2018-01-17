@@ -21,7 +21,7 @@ class ReviewsApi {
    * @returns {Promise} reviews averages rating
    */
   getReviewsRatingAverages() {
-    return this.secureCall('get', `/get-reviews-averages`);
+    return this.secureCall('get', '/get-reviews-averages');
   }
 }
 

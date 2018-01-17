@@ -28,7 +28,7 @@ export const getReviewsTotal = state => {
 };
 
 export const getReviewsRatingAverage = state => {
-  return state.get(['reviews', 'ratingAverages']);
+  return state.getIn(['reviews', 'ratingAverages']);
 };
 
 export default ReviewsReducer;
