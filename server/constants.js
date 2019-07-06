@@ -1,7 +1,7 @@
 'use strict';
 
 exports.USER_TYPE = {
-    ADMIN: 'admin'
+    USER: 'user'
 };
 
 exports.RATING_ASPECTS = [

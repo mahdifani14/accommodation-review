@@ -48,7 +48,7 @@ const config = {
         domain: process.env.AUTH0_DOMAIN
     },
     swagger: {
-        register: HapiSwagger,
+        plugin: HapiSwagger,
         options: {
             info: {
                 title: PackageJson.name,

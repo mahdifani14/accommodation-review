@@ -4,9 +4,9 @@
  */
 function getHeaders() {
   return {
-    'Accept': 'application/json', // eslint-disable-line
+    'Accept': 'application/json',
     'Content-Type': 'application/json',
-    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE0IiwibmFtZSI6Ik1haGRpIEZhbmktRGlzZmFuaSIsInVzZXJfdHlwZSI6ImFkbWluIn0.FFj0JMT5pAEnMXZZ7tl7c07S31a-ZnGXY84tXNdqh1s'
+    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE0IiwibmFtZSI6Ik1haGRpIiwidXNlcl90eXBlIjoidXNlciJ9.4__s_wv81LyO-Qq61ExHXUZIu8-OOlW0l6AObtMnsEs'
   };
 }
 

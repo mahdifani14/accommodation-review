@@ -1,22 +1,30 @@
 'use strict';
 
+const Good = require('@hapi/good');
+
 const Config = require('./../config');
-const Good = require('good');
-
-const options = {
-    opsInterval: Config.get('/logging/opsInterval'),
-    reporters: []
-};
-
 const events = Config.get('/logging/events');
 
-const GoodConsole = require('good-console');
-options.reporters.push({
-    reporter: GoodConsole,
-    events: events
-});
+const options = {
+  ops: {
+    interval: Config.get('/logging/opsInterval')
+  },
+  reporters: {
+    reporter: [
+      {
+        module: '@hapi/good-squeeze',
+        name: 'Squeeze',
+        args: [events]
+      },
+      {
+        module: '@hapi/good-console'
+      },
+      'stdout'
+    ]
+  }
+};
 
 module.exports = {
-    register: Good,
-    options: options
+    plugin: Good,
+    options
 };

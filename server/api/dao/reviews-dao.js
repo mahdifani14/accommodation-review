@@ -10,7 +10,7 @@ class ReviewsDao {
 
     constructor() {
         const dbUrl = `${Config.get('/mongodb/url')}/${Config.get('/mongodb/name')}`;
-        this.collection = MongoClient.connect(dbUrl)
+        this.collection = MongoClient.connect(dbUrl, { useNewUrlParser: true })
             .then(db => db.db('accommodation').collection('reviews'));
     }
 
