@@ -69,7 +69,7 @@
     "jest-css-modules": "1.1.0",
     "jsdom": "9.4.1",
     "json-loader": "0.5.4",
-    "mocha": "2.5.3",
+    "mocha": "10.1.0",
     "mock-css-modules": "1.0.0",
     "morgan": "1.9.1",
     "nock": "8.0.0",
